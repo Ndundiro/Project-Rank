@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 # Create your models here.
@@ -12,6 +13,8 @@ class Project(models.Model):
     submitted = models.DateTimeField(auto_now_add=True)
     design = models.IntegerField(blank=True,default=7.0)
     usability = models.IntegerField(blank=True,default=7.0)
+    creativity = models.IntegerField(blank=True, default=7.0)
+    content =  models.IntegerField(blank = True, default=7.0)
     overall = models.IntegerField(blank=True,default=7.0)
 
     def save_project(self):
@@ -22,3 +25,32 @@ class Project(models.Model):
     
     def __str__(self):
         return self.sitename
+
+    def get_absolute_url(self):
+        return reverse('home')
+
+       # , kwargs={'pk': self.pk}
+
+
+
+class Review(models.Model):
+    ratings = (1, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8),(9, 9),(10, 10)
+    
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    design = models.IntegerField(choices=ratings, default=0)
+    usability = models.IntegerField(choices=ratings, default=0)
+    creativity = models.IntegerField(choices=ratings, default=0)
+    content =  models.IntegerField(choices=ratings, default=0)
+    overall_score = models.IntegerField(blank=True, default=0)
+
+    def save_rate(self):
+            self.save()
+
+    def delete_rate(self):
+        self.delete()
+
+
+
+
+
