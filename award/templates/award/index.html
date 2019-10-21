@@ -3,6 +3,18 @@
 {% load static %}
 
 {% block content%}
-<h1 class="text-center">Wamlambez</h1>
+{% for project in projects %}
+<h1>This is project </h1>
+
+<div>
+    <img src="{{ project.screenshot.url }}" alt="">
+</div>
+<p>{{ project.description }}</p>
+<!-- <p>{{ project.design }}</p> -->
+<p>{{ project.submitted|timesince}} AGO</p>
+
+<a href="{% url 'project-detail' project.pk %}">View project</a>
+{% endfor %}
+
 
 {% endblock content %}
