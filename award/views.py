@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Project, Review
 from django.views.generic import  ListView,DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import get_object_or_404
 
 # def index(request):
 #     return render(request, 'award/index.html')
@@ -17,8 +18,7 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    def get_absolute_url(self):
-        return reverse('', kwargs={'pk': self.pk})
+    
 
 
 class ProjectListView(ListView):
@@ -32,17 +32,26 @@ class ReviewCreateView(LoginRequiredMixin,CreateView):
     model = Review
     fields = ['design', 'usability', 'creativity', 'content']
 
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Overridden so we can make sure the `Project` instance exists
+        before going any further.
+        """
+        self.project = get_object_or_404(Project, pk=kwargs['pk'])
+        return super().dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         form.instance.user = self.request.user
+        form.instance.project = self.project
         return super().form_valid(form)
 
     def get_absolute_url(self):
         return reverse('', kwargs={'pk': self.pk})
 
 
-
 class ProjectDetailView(DetailView):
     model = Project
+    
 
 
 # class ReviewListView(ListView):
@@ -50,5 +59,15 @@ class ProjectDetailView(DetailView):
 #     template_name = 'award/reviews.html'  #<app>/<model>_<viewtype>.html
 #     context_object_name = 'reviews'
 #     ordering = ['-submitted']
+
+
+
+
+
+
+
+#  form.project_id = 
+#         form.project_id = Project.objects.get(pk = self.kwargs['pk'])
+#         print(self.kwargs['pk'])
 
 
