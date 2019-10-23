@@ -9,7 +9,6 @@ from django.shortcuts import get_object_or_404
 #     return render(request, 'award/index.html')
 
 
-
 class ProjectCreateView(LoginRequiredMixin,CreateView):
     model = Project
     fields = ['sitename', 'description', 'url', 'screenshot']
@@ -17,8 +16,6 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
-    
 
 
 class ProjectListView(ListView):
@@ -52,22 +49,5 @@ class ReviewCreateView(LoginRequiredMixin,CreateView):
 class ProjectDetailView(DetailView):
     model = Project
     
-
-
-# class ReviewListView(ListView):
-#     model = Review
-#     template_name = 'award/reviews.html'  #<app>/<model>_<viewtype>.html
-#     context_object_name = 'reviews'
-#     ordering = ['-submitted']
-
-
-
-
-
-
-
-#  form.project_id = 
-#         form.project_id = Project.objects.get(pk = self.kwargs['pk'])
-#         print(self.kwargs['pk'])
 
 
