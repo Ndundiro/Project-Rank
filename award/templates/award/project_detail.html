@@ -2,7 +2,9 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
     <div class="col-md-6">
         <img src="{{ object.screenshot.url }}" class=" one">
     </div>
@@ -13,10 +15,12 @@
         <h1>Project owner:{{object.user }}</h1>
         <h1>Project submitted on: {{object.date_posted|date:"F d, Y"}}</h1>
     </div>
-    <h3>Design: {{object.design}}</h3>
+    <h3>Design: {{object.design|floatformat:2}}</h3>
     <h3>Usability: {{object.usability}}</h3>
     <h3>Creativity{{object.creativity}}</h3>
     <h3>content: {{object.content}}</h3>
+</div>
+</div>
 </div>
 
 </div>
