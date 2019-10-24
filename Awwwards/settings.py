@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['.localhost', '.herokuapp.com', '.127.0.0.1']
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'award.apps.AwardConfig',
-    'bootstrap4',
+    'bootstrap3',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
