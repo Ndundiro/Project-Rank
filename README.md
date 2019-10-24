@@ -80,7 +80,7 @@ There are no known bugs yet
 For any comments,suggestions,feedback or inquiries, contact me via email: ndundirokamau@gmail.com
 
 ## License
-[MIT License](https://github.com/Ndundiro/Project-Rank/LICENSE)
+[MIT License](https://github.com/Ndundiro/Project-Rank/blob/master/LICENSE)
 
 Copyright © 2019 Ndundiro Kamau
 
