@@ -36,21 +36,21 @@
                 </form>
             </span>
             <!-- search form end -->
-            
-            
+
+
 
             <!-- icons to the right -->
 
             <span class="pull-right">
                 {% if user.is_authenticated %}
-                
+
                 <a href="{% url 'display_profile' %}" class="nav-item-nav-link mr-5" style="color: black">
                     <i class="far fa-user-circle fa-2x"></i>
-                   
                 </a>
-
-                <button class="btn-xl #18ffff cyan accent-2">SUBMIT 
-                </button>
+                <a href="{% url 'project-create' %}">
+                    <button class="btn-xl #18ffff cyan accent-2">SUBMIT
+                    </button>
+                </a>
                 {% else %}
                 <a href="{% url 'login' %}" class="nav-item-nav-link">Login</a>
                 <a href="{% url 'register' %}" class="nav-item-nav-link">SignUp</a>
