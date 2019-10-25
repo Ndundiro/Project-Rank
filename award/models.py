@@ -11,12 +11,9 @@ class Project(models.Model):
     screenshot = models.ImageField(upload_to = 'screenshots', default = 'default.jpg')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     submitted = models.DateTimeField(auto_now_add=True)
-    # design = models.IntegerField(blank=True,)
-    # usability = models.IntegerField(blank=True,)
-    # creativity = models.IntegerField(blank=True, )
-    # content =  models.IntegerField(blank = True, )
-    # overall = models.IntegerField(blank=True)
+    
 
+    
     @property
     def design(self):
         if self.reviews.count() == 0:
