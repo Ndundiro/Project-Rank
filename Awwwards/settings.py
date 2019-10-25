@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'award.apps.AwardConfig',
     'bootstrap3',
+    'bootstrap4'
     'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',
