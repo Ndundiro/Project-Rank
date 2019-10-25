@@ -50,8 +50,8 @@ class Project(models.Model):
     def __str__(self):
         return self.sitename
 
-    def get_absolute_url(self):
-        return reverse('index')
+    def get_absolute_url(self):        
+        return reverse('project/<int:pk>/', kwargs={'pk': self.pk})
 
        # , kwargs={'pk': self.pk}
 

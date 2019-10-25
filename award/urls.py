@@ -12,7 +12,7 @@ urlpatterns = [
     path('', ProjectListView.as_view(), name='index'),
     path('review/new/<int:pk>/', ReviewCreateView.as_view(), name='review-create'),
     path('project/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
-  # path('', views.index, name='home'),
+    url(r'^api/merch/$', views.MerchList.as_view()),
 ]
 
 if settings.DEBUG:

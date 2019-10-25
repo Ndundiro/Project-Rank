@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'award.apps.AwardConfig',
     'bootstrap3',
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,6 +86,12 @@ WSGI_APPLICATION = 'Awwwards.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
+    )
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 

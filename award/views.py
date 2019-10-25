@@ -5,6 +5,15 @@ from django.views.generic import  ListView,DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import Project
+from .serializer import MerchSerializer
+from .permissions import IsAdminOrReadOnly
+
+
+
+
 # def index(request):
 #     return render(request, 'award/index.html')
 
@@ -42,12 +51,25 @@ class ReviewCreateView(LoginRequiredMixin,CreateView):
         form.instance.project = self.project
         return super().form_valid(form)
 
-    def get_absolute_url(self):
-        return reverse('', kwargs={'pk': self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('project/<int:pk>/', kwargs={'pk': self.pk})
 
 
 class ProjectDetailView(DetailView):
     model = Project
     
 
+        # Rest Api create
+
+    
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = MoringaMerch.objects.all()
+        serializer = MerchSerializer(all_merch, many=True)
+        return Response(serializer.data)
+
+        
+class MerchList(APIView):
+#..........
+    permission_classes = (IsAdminOrReadOnly,)
 
