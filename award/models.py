@@ -15,7 +15,7 @@ class Project(models.Model):
     # usability = models.IntegerField(blank=True,)
     # creativity = models.IntegerField(blank=True, )
     # content =  models.IntegerField(blank = True, )
-    overall = models.IntegerField(blank=True)
+    # overall = models.IntegerField(blank=True)
 
     @property
     def design(self):
@@ -51,8 +51,10 @@ class Project(models.Model):
         return self.sitename
 
     def get_absolute_url(self):        
-        return reverse('project/<int:pk>/', kwargs={'pk': self.pk})
+        return reverse('index')
 
+
+    # return reverse('project/<in/', kwargs={'pk': self.pk})
        # , kwargs={'pk': self.pk}
 
 

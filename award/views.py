@@ -19,12 +19,19 @@ from .permissions import IsAdminOrReadOnly
 
 
 class ProjectCreateView(LoginRequiredMixin,CreateView):
+    
     model = Project
     fields = ['sitename', 'description', 'url', 'screenshot']
-
+    
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+    # def get_absolute_url(self):
+    #     return reverse('project/<int:pk>/', kwargs={'pk': self.pk})
+
+
+    
 
 
 class ProjectListView(ListView):
@@ -32,6 +39,8 @@ class ProjectListView(ListView):
     template_name = 'award/index.html'  #<app>/<model>_<viewtype>.html
     context_object_name = 'projects'
     ordering = ['-submitted']
+
+
 
 
 class ReviewCreateView(LoginRequiredMixin,CreateView):
