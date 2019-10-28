@@ -8,8 +8,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Project
-from .serializer import MerchSerializer
-from .permissions import IsAdminOrReadOnly
+from .serializer import MerchSerializer,profileSerializer
+from users.models import Profile
+# from .permissions import IsAdminOrReadOnly
 
 
 
@@ -73,12 +74,17 @@ class ProjectDetailView(DetailView):
     
 class MerchList(APIView):
     def get(self, request, format=None):
-        all_merch = MoringaMerch.objects.all()
+        all_merch = Project.objects.all()
         serializer = MerchSerializer(all_merch, many=True)
         return Response(serializer.data)
 
+class profileList(APIView):
+    def get(self, request, format=None):
+        all_profile = Profile.objects.all()
+        serializers = profileSerializer(all_profile, many=True)
+        return Response(serializers.data)
         
-class MerchList(APIView):
-#..........
-    permission_classes = (IsAdminOrReadOnly,)
+# class MerchList(APIView):
+# #..........
+#     permission_classes = (IsAdminOrReadOnly,)
 

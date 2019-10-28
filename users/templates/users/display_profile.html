@@ -25,6 +25,16 @@
             <div class="project-details mt-3 mb-3">
                 <span class="mr-5"><strong>{{projects.count}}</strong> Projects</span>
             </div>
+
+            <div class="btn btn-#0099CC">
+                <a class=""href="{% url 'projector_api' %}">Projects Api Endpoints</a>
+            </div>
+            <div class="btn btn-#0099CC">
+                <a class=""href="{% url 'profiler_api' %}">Profile Api Endpointst</a>
+            </div>
+
+            <br>
+            
             <div class="btn btn-danger">
                 <a href="{% url 'logout' %}">Log out</a>
             </div>

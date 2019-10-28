@@ -4,7 +4,7 @@ from django.conf.urls import url
 from .views import  ProjectCreateView, ProjectListView, ReviewCreateView, ProjectDetailView
 from django.conf import settings
 from django.conf.urls.static import static
-#, ProjectUpdateView, ProjectDeleteView, ProjectDetailView
+
 
 
 urlpatterns = [
@@ -12,7 +12,6 @@ urlpatterns = [
     path('', ProjectListView.as_view(), name='index'),
     path('review/new/<int:pk>/', ReviewCreateView.as_view(), name='review-create'),
     path('project/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
-    url(r'^api/merch/$', views.MerchList.as_view()),
 ]
 
 if settings.DEBUG:
