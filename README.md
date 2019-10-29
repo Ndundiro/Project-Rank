@@ -4,12 +4,10 @@
 Ndundiro Kamau 
 
 ## Decription
-Project-Rank is a platform  for web designers to showcase their work and get their web applications voted for by different users.
-## Screenshot
-<img src="https://github.com/Ndundiro/Project-Rank/blob/master/instascreenshot.png" width="1000">
+Project-Rank is a platform  for web designers to showcase their work and get their web applications voted for by different users.The most voted for site becomes the site of the day.
 
 ## Live Link 
-[lick here](https://insta159.herokuapp.com/) view the live site.
+[lick here](https://awwwards159.herokuapp.com/) view the live site.
 
 ## SetUp/Installations
 1. Download the zip file of the project or Clone the repository using the following command:
@@ -82,7 +80,7 @@ There are no known bugs yet
 For any comments,suggestions,feedback or inquiries, contact me via email: ndundirokamau@gmail.com
 
 ## License
-[MIT License](https://github.com/Ndundiro/Project-RankICENSE)
+[MIT License](https://github.com/Ndundiro/Project-Rank/blob/master/LICENSE)
 
 Copyright © 2019 Ndundiro Kamau
 
